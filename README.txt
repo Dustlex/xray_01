@@ -1,18 +1,22 @@
 1) Предварительно необходимо установить docker
 
-2) Cкачать репозиторий в отдельную директорию:
+2) Cкачать репозиторий в отдельную директорию и зайти в нее:
+ mkdir ~/xray && cd ~/xray/
+ git clone https://github.com/Dustlex/xray_01.git
+ cd ~/xray/xray_01/
 
 3) Собрать билд командой:
 
-   docker build -f dockerfile -t ubuntu:0.1 .
+   docker build -f dockerfile -t xray_server:01 .
 
-4) При запуске в docker run, необходимо указать:
-- тип сети host
+4) Не выходя из деиректории, запускаем run как в примере ниже, но необходимо изменить переменные указываемые через -e:
 - Переменную UUID (можно сформировать в любом UUID генераторе, она будет использована для VLESS подключения)
 - Переменную PASS (это пароль для shadowsocks, должен состоять из 12-ти символов (при условии что вы не измените 128-битное шифрование в config.json) , закодированный в base64)
    + закодировать можно так echo -n "pipidorka123LEXP" | base64 
-   + полученное значение надо указать в переменную и при подключении в клиенте
+   + полученное значение надо указать в переменную и при подключении в клиенте  при shadowsocks подключении
 
 - Итоговый запуск будет выглядеть так: 
    
-  docker run --name xray-01 --network host -e PASS=cGlwaWRvcmthMTIzTEVYUA== -e UUID=d2adee51-6ced-11ee-b962-0242ac120002 -d ubuntu:01 
+  docker run --name xray-01 --network host -e PASS=cGlwaWRvcmthMTIzTEVYUA== -e UUID=d2adee51-6ced-11ee-b962-0242ac120002 -d xray_server:01
+
+- Проверить запуск можно через docker logs xray-01
