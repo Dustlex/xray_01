@@ -13,7 +13,7 @@ It's a simple matter of running your XRAY server in a container. There is an eve
 
 4) Without leaving the docker directory, run the run as in the example below, but it is necessary to change the variables specified with -e:
 - UUID variable (can be generated in any UUID generator, it will be used for VLESS connection)
-- PASS variable (this is the password for shadowsocks, must be 12 characters (provided you don't change the 128-bit encryption in config.json) , base64 encoded)
+- PASS variable (this is the password for shadowsocks, must be 16 characters (provided you don't change the 128-bit encryption in config.json) , base64 encoded)
    + you can encode the password "pipidorka123LEXP" with the command echo -n "pipidorka123LEXP" | base64. 
    + the obtained value should be specified in the variable and when connecting in the client during shadowsocks connection.
 
@@ -56,7 +56,7 @@ Turn on, and choose either system proxy mode or TUN mode (the latter also create
 
 4) Не выходя из деиректории, запускаем run как в примере ниже, но необходимо изменить переменные указываемые через -e:
 - Переменную UUID (можно сформировать в любом UUID генераторе, она будет использована для VLESS подключения)
-- Переменную PASS (это пароль для shadowsocks, должен состоять из 12-ти символов (при условии что вы не измените 128-битное шифрование в config.json) , закодированный в base64)
+- Переменную PASS (это пароль для shadowsocks, должен состоять из 16-ти символов (при условии что вы не измените 128-битное шифрование в config.json) , закодированный в base64)
    + закодировать пароль "pipidorka123LEXP" можно командой echo -n "pipidorka123LEXP" | base64 
    + полученное значение надо указать в переменную и при подключении в клиенте  при shadowsocks подключении
 
