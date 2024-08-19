@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  systemctl \
  gettext \
  vim
-RUN wget https://github.com/XTLS/Xray-core/releases/download/v1.8.4/Xray-linux-64.zip --no-check-certificate  && \
+RUN wget https://github.com/XTLS/Xray-core/releases/download/v1.8.23/Xray-linux-64.zip --no-check-certificate  && \
  mkdir /opt/xray && \
  unzip ./Xray-linux-64.zip -d /opt/xray && \
  chmod +x /opt/xray/xray && \
